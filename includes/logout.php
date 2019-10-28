@@ -1,4 +1,4 @@
 <?php
    session_destroy();
-   header("location:../department.php");
+   header("location:../index.php");
 ?>

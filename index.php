@@ -1,46 +1,36 @@
 <?php
+$pagetitle="Admin Page";
+include('includes/studenthead.php');
+if ( isset($_POST['submit'])) 
+{  
+ $username=$_POST['username'];
+  $password=$_POST['password'];
 
-
-$pagetitle="Home";
-include("includes/studenthead.php");
-include("accreditation.php");
- session_start();
-if ($_SERVER["REQUEST_METHOD"] == "POST")  {
-   $username=strtolower($_POST['username']);
-  $password=strtoupper($_POST['password']);
-$accredit_sql = "SELECT * FROM users WHERE matric='$username'";
-                        $retval = mysqli_query( $db,$accredit_sql );
-                        $result_retval=mysqli_fetch_array( $retval);
-              
-                            if($result_retval['accredit']==0)
-                            {
-                               echo "<script type='text/javascript'> alert('YOU HAVE NOT BEED ACCREDITTED TO VOTE PLEASE VISIT YOUR DEPARTMENT')</script>";
-                        }
-                        else{
-
-  $sql= "SELECT id FROM users WHERE matric='$username' AND  passkey='$password'";
-  $result=mysqli_query($db,$sql) or die("could not select database");
+  $sql= "SELECT * FROM staffs WHERE staff_id='$username' AND passkey='$password'";
+    $result=mysqli_query($db,$sql) or die("could not select database");
+  $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
   $count=mysqli_num_rows($result);
+    
 
 if ($count==1) {
-                             $_SESSION['login_user']=$username; 
-                            header('location:vote.php');
-                             
+  session_start();
+                              $_SESSION['student_user']=$username;  
+                            header('location:viewaspirant.php');
                          }
                         
                     else
                         {
-                          echo "<div class='error bg-danger text-center text-light'>Invalid Username or Password</div>";
-                        } }
+                          echo"<div class='error bg-danger text-center text-light'>Invalid Username or Password</div>";
+                        } 
 }
-?>
-<div class="container-fluid bg-light body">
+mysqli_close($db);
+?><div class="container-fluid body">
 <div class="container  ">
 <div class="row justify-content-center">
-                        <form method="POST" class="col-lg-5" style="margin-top: 100px;">
+                        <form method="POST" class="col-lg-5" style="margin-top:100px;">
 
 <div class="form-group">
-    <label for="inputEmail3" class="col-form-label font-weight-bold">Username</label>
+    <label for="inputEmail3" class="col-form-label font-weight-bold">Staff ID</label>
   
         <input type="text" class="form-control " required placeholder="Username" name="username">
   </div>
@@ -52,17 +42,12 @@ if ($count==1) {
 
 <div class="form-group">
       <button type="submit" class="btn btn-success" name="submit">Sign in</button>
-  </div>
-  <span class="text-success form-text">If you have issues trying to login ? <em>kindly visit your department</em> for registration</span><br><br>
+      <!-- <span class="text-success form-text">If you don't have account yet? <em>kindly click <a href="staffhome.php">here</a></em> for registration.</span><br><br> -->
+    </div>
+  <span class="text-success form-text">If you have issues trying to login ? <em>kindly visit your admin</em> for registration.</span><br><br>
+  <!-- <span class="text-success form-text"><a href="admin.php">ADMIN PANEL</a></span><br><br> -->
 </form>
 </div>
 </div>
 </div>
-<div class="footer ico-0001">
- <div class="text-center ico-0001" style="background-color:rgb(64,126,60);margin-top:100px;height:100px;color:#fff;">
-               <section><b>copyright&copy;</b> 2019 - All Rights Reserved - www.yabatech.edu.ng</section>  
-    </div>
-
-</div>
-
 </div>

@@ -5,18 +5,18 @@ $pagetitle="View Asspirant";
 <div class="container " >
   <div class="row justify-content-center">
     <div class="col-lg-8">
-   <table class="table table-hover bg-light" style="margin-top:-200px; ">
+   <table class="table table-hover bg-light" style="margin-top:50px; ">
 
 <?php
-$department=department($_SESSION['student_user']);
+$staff_id=$_SESSION['student_user'];
 echo " <thead>
     <tr>
- <th class='alert-success text-center text-uppercase' colspan='6'><b> List of Aspirants for ".$department."</b></th>
+ <th class='alert-success text-center text-uppercase' colspan='6'><b> List of Aspirants</b></th>
     </tr>
-    <tr class='alert-light text-dark'><td><b>Sn</b></td><td><b>Surname</b></td><td><b>Name</b></td><td><b>Matric</b></td><td><b>Position</b></td></tr>
+    <tr class='alert-light text-dark'><td><b>Sn</b></td><td><b>Surname</b></td><td><b>Name</b></td><td><b>Staff ID</b></td><td><b>Position</b></td></tr>
   </thead><tbody class='text-capitalize'>";
 
-$sql="SELECT * FROM voted WHERE department ='$department' and position='PRESIDENT' or position='VICE PRESIDENT'
+$sql="SELECT * FROM voted WHERE staff_id ='$staff_id' and position='PRESIDENT' or position='VICE PRESIDENT'
 or position='SECRETARY'
 or position='LIBARIAN'
 or position='SPORTS DIRECTOR'
@@ -28,7 +28,7 @@ $query=mysqli_query($db,$sql);
 $count=1;
 while ($result=mysqli_fetch_array($query))
 { 
-echo"<tr>"."<td>".$count++."</td>"."<td>" .$result['surname']."</td>"."<td class=''>" .$result['name']."</td>"."<td>" .$result['matric']."</td>".
+echo"<tr>"."<td>".$count++."</td>"."<td>" .$result['surname']."</td>"."<td class=''>" .$result['name']."</td>"."<td>" .$result['staff_id']."</td>".
 "<td>".$result['position']."</td></tr><br>";
 }
 ?>

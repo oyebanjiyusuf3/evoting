@@ -1,6 +1,6 @@
 <?php
 $pagetitle="Asspirant Registration";
-include("includes/header.php");
+include("includes/adminheader.php");
 
 if (isset($_POST['register'])) 
 {
@@ -13,14 +13,14 @@ if (isset($_POST['register']))
                    
                       $surname=strtolower($_POST['surname']);
                       $name=strtolower($_POST['name']);
-                      $department =strtolower(department($matric));
+                      // $department =strtolower(department($matric));
                       $position=$_POST['position'];
                       $raw_data=$_POST['image'];
                       $image=$raw_data;
 
 
 
-                      $sqli="SELECT * FROM voted WHERE position='$position' and department='$department'";
+                      $sqli="SELECT * FROM voted WHERE position='$position' and matric='$matric'";
                         $retval = mysqli_query( $db,$sqli );
                         $result_retval=mysqli_fetch_array( $retval);
                         $result_count=mysqli_num_rows($retval);

@@ -1,14 +1,16 @@
 <?php
-$pagetitle="Department Admin";
+$pagetitle="Admin Page";
 include('includes/studenthead.php');
 if ( isset($_POST['submit'])) 
 {  
  $username=$_POST['username'];
   $password=$_POST['password'];
-  $sql= "SELECT * FROM users WHERE matric='$username' AND  passkey='$password'";
-  $result=mysqli_query($db,$sql) or die("could not select database");
+
+  $sql= "SELECT * FROM admins WHERE username='$username' AND password='$password'";
+    $result=mysqli_query($db,$sql) or die("could not select database");
   $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
   $count=mysqli_num_rows($result);
+    
 
 if ($count==1) {
   session_start();
@@ -41,7 +43,7 @@ mysqli_close($db);
 <div class="form-group">
       <button type="submit" class="btn btn-success" name="submit">Sign in</button>
   </div>
-  <span class="text-success form-text">If you have issues trying to login ? <em>kindly visit your admin</em> for registration</span><br><br>
+  <!-- <span class="text-success form-text">If you have issues trying to login ? <em>kindly visit your admin</em> for registration</span><br><br> -->
 </form>
 </div>
 </div>
