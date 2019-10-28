@@ -5,10 +5,10 @@ include("includes/adminheader.php");
 if (isset($_POST['register'])) 
 {
 
-        $matric=$_POST['matric'];
-        $matr = "([f|p]/[h|n]d/[0-9][0-9]/[0-9][0-9][0-9][0-9][0-9][0-9][0-9]$)";
+        $staff_id=$_POST['staff_id'];
+        $staff = "([f|p]/[0-9][0-9]/[0-9][0-9][0-9][0-9][0-9][0-9][0-9]$)";
 
-           if (preg_match($matr, $matric)===1) 
+           if (preg_match($staff, $staff_id)===1) 
              {
                    
                       $surname=strtolower($_POST['surname']);
@@ -20,7 +20,7 @@ if (isset($_POST['register']))
 
 
 
-                      $sqli="SELECT * FROM voted WHERE position='$position' and matric='$matric'";
+                      $sqli="SELECT * FROM aspirants WHERE position='$position' and staff_id='$staff_id'";
                         $retval = mysqli_query( $db,$sqli );
                         $result_retval=mysqli_fetch_array( $retval);
                         $result_count=mysqli_num_rows($retval);
@@ -28,24 +28,25 @@ if (isset($_POST['register']))
                         echo "<script type='text/javascript'> alert('CAN NOT REGISTER, LIMIT EXCEEDED')</script>";
                        }
 else{
-                      $sq = "SELECT id FROM voted WHERE matric = '$matric' ";
+                      $sq = "SELECT id FROM aspirants WHERE staff_id = '$staff_id' ";
                       $res=mysqli_query($db,$sq) or die("could not connect");
                       $row = mysqli_fetch_array($res,MYSQLI_ASSOC);
                       $count = mysqli_num_rows($res);
 
                if ($count=='1') 
                    {
-                      echo "<div class='alert alert-warning text-center' role='alert'><i class='fa fa-exclamation-triangle text-center'></i> YOU ALREADY HAVE AN ACCOUNT</div>";
+                      echo "<div class='alert alert-warning text-center' role='alert'><i class='fa fa-exclamation-triangle text-center'></i> ASPIRANT HAS BEEN ADDED ALREADY</div>";
                    }
 
                else
                   {
-                      $sql="INSERT INTO voted (surname,name,matric,department,image,position)VALUES ('$surname','$name','$matric','$department','$image','$position') ";
+                      $sql="INSERT INTO aspirants (surname,name,staff_id,image,position)VALUES ('$surname','$name','$staff_id','$image','$position') ";
                       $result=mysqli_query($db,$sql);
 
                       if ($result) 
                              {
-                                 echo "<script type='text/javascript'> alert('SUBMITTED SUCCESSFULLY')</script>";
+                                 echo "<script type='text/javascript'> 
+                                 (`ASPIRANT WITH STAFF STAFF ID: ${staff_id} ADDED SUCCESSFULLY`)</script>";
                              }
 
                       if (!$result) 
@@ -58,7 +59,7 @@ else{
 
            else 
              {
-                 echo "<div class='alert alert-warning text-center' role='alert'><i class='fa fa-exclamation-triangle text-center'></i> INVALID MATRIC NUMBER</div>";
+                 echo "<div class='alert alert-warning text-center' role='alert'><i class='fa fa-exclamation-triangle text-center'></i> INVALID STAFF ID</div>";
              } 
        
 }
@@ -69,10 +70,11 @@ mysqli_close($db);
 <div class="container  ">
 <div class="row justify-content-center">
   <div class="col-lg-6">
-  <form method="POST" encrtype="multipart/form-data" style="margin-top:100px; ">
+  <div class='error bg-primary text-center text-light' style="margin-top:20px;">ASPIRANT FORM</div>
+  <form method="POST" encrtype="multipart/form-data" style="margin-top:50px; ">
 <input type="text" name="surname" class="form-control" required placeholder="Please enter your surname"><br>
 <input type="text" name="name" class="form-control" required  placeholder="Please enter your name"><br>
-<input type="text" name="matric" class="form-control" required  placeholder="Please enter matric number"><br>
+<input type="text" name="staff_id" class="form-control" required  placeholder="Please enter matric number"><br>
 <select required  class="form-control" name="position"><br>
           <option>--SELECT POST--</option>
           <option value='PRESIDENT'>PRESIDENT</option>
@@ -96,9 +98,10 @@ mysqli_close($db);
         <input type=button value="&lt; Take Another" class="form-control col-lg-3 col-md-4 col-sm-6 col-xs-12 my-2 mr-sm-2" onClick="cancel_preview()">
            <input type=button value="Save Photo &gt;" class="form-control col-lg-3 col-md-4 col-sm-6 col-xs-12 my-2 mr-sm-2" onClick="save_photo()" style="font-weight:bold;">
 </div>
-<button type="submit" name="register" class="btn btn-secondary btn-form">REGISTER</button>
+<button type="submit" name="register" class="btn btn-primary btn-form">REGISTER</button>
 </form>
 <script language="JavaScript">
+
                      Webcam.set({
                        width: 320,
                        height: 240,

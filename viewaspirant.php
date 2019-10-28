@@ -1,11 +1,11 @@
 <?php
 $pagetitle="View Asspirant";
-  include("includes/header.php");
+  include("includes/adminheader.php");
 ?>
 <div class="container " >
   <div class="row justify-content-center">
     <div class="col-lg-8">
-   <table class="table table-hover bg-light" style="margin-top:50px; ">
+   <table class="table table-hover bg-light" style="margin-top:20px; ">
 
 <?php
 $staff_id=$_SESSION['student_user'];
