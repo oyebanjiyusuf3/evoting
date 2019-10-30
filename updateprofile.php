@@ -2,7 +2,7 @@
  $pagetitle="profile";
 include("includes/header.php");
 $con=$_SESSION['user_profile'];
-$sql = "SELECT * FROM users WHERE matric='$con'";
+$sql = "SELECT * FROM aspirants WHERE staff_id='$con'";
 $retval = mysqli_query( $db,$sql );
 $result=mysqli_fetch_array($retval);
 if($retval )
@@ -10,8 +10,8 @@ if($retval )
   $id=$result['surname'].'&nbsp;'.$result['name'];
   $surnam=$result['surname'];
   $nam=$result['name'];
-  $matri=$result['matric'];
-  $leve=$result['level'];
+  $staff_id=$result['staff_id'];
+  $position=$result['position'];
                        }
 
 
@@ -54,7 +54,7 @@ if($retval )
 </th>
 </tr>
     <tr><th>
-  Matric : <?php echo $result['matric'];?>
+  Staff ID : <?php echo $result['staff_id'];?>
   <div class="input-group"> 
     <input type='text' name='matric' class='form-control'   placeholder='Edit your matric'>
     <span class="input-group-btn">
