@@ -95,7 +95,7 @@ Male
 </th>
  </tr>
 </table>
-<a href="editprofile.php">Back</a>
+<a href="editaspirantprofile.php">Back</a>
  </tbody>
   </form>
   </div>

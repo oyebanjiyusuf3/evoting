@@ -9,6 +9,7 @@ $pagetitle="View Asspirant";
 
 <?php
 $staff_id=$_SESSION['student_user'];
+
 echo " <thead>
     <tr>
  <th class='alert-success text-center text-uppercase' colspan='6'><b> List of Aspirants</b></th>
