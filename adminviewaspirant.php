@@ -1,6 +1,6 @@
 <?php
 $pagetitle="View Asspirant";
-  include("includes/header.php");
+  include("includes/adminheader.php");
 ?>
 <div class="container " >
   <div class="row justify-content-center">

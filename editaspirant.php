@@ -38,7 +38,7 @@ $query=mysqli_query($db,$sql);
 echo "<table class='table table-hover bg-light ' style='margin-top:-100px; '><form method='POST'>";
 echo " <thead>
     <tr>
- <th class='alert-success text-center text-uppercase' colspan='7'><b> User Profile for ".$department."</b></th>
+ <th class='alert-success text-center text-uppercase' colspan='7'><b> User Profile for ".$staff_id."</b></th>
     </tr>
     <tr class='alert-light text-dark'><td><b>Sn</b></td><td><b>Surname</b></td><td><b>Name</b></td><td><b>Matric</b></td><td><b>Sex</b></td><td><i class='fa fa-trash'></i></td><td><i class='fa fa-refresh'></i></td></b></tr>
   </thead>";{$count=1;

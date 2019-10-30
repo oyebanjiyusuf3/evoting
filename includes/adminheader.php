@@ -45,7 +45,7 @@ INCLUDE("includes/session.php");
         </div>
           </li>
        <li class="nav-item active">
-        <a class="nav-link" href="viewaspirant.php" ><i class="fa fa-eye"></i> View Asspirant<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="adminviewaspirant.php" ><i class="fa fa-eye"></i> View Asspirant<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="editprofile.php"><i class="fa fa-edit"></i> Edit Aspirant profile</a>

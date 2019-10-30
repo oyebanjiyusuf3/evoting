@@ -74,7 +74,7 @@ mysqli_close($db);
   <form method="POST" encrtype="multipart/form-data" style="margin-top:50px; ">
 <input type="text" name="surname" class="form-control" required placeholder="Please enter your surname"><br>
 <input type="text" name="name" class="form-control" required  placeholder="Please enter your name"><br>
-<input type="text" name="staff_id" class="form-control" required  placeholder="Please enter matric number"><br>
+<input type="text" name="staff_id" class="form-control" required  placeholder="Please enter staff ID"><br>
 <select required  class="form-control" name="position"><br>
           <option>--SELECT POST--</option>
           <option value='PRESIDENT'>PRESIDENT</option>

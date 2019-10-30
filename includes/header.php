@@ -47,9 +47,9 @@ INCLUDE("includes/session.php");
        <li class="nav-item active">
         <a class="nav-link" href="viewaspirant.php" ><i class="fa fa-eye"></i> View Asspirant<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="editprofile.php"><i class="fa fa-edit"></i> Edit profile</a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" href="accreditation.php"><i class="fa fa-handshake-o"></i> Accreditation</a>
       </li>

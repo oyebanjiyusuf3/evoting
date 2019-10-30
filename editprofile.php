@@ -1,6 +1,6 @@
 <?php 
  $pagetitle="profile";
-  include("includes/header.php");
+  include("includes/adminheader.php");
 if (isset($_POST['delete'])) 
                   {
                         $con=$_POST['delete'];
