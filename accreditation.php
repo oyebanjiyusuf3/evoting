@@ -1,8 +1,9 @@
 <?php
  $pagetitle="accreditation";
   include("includes/adminheader.php");
-  $department= department($_SESSION['student_user']);
- $sql="SELECT * FROM users WHERE department ='$department'";
+//  $department= department($_SESSION['student_user']);
+  $staff_id= $_SESSION['staff_user'];
+ $sql="SELECT * FROM staffs WHERE staff_id ='$staff_id'";
      $query=mysqli_query($db,$sql);
 ?>
 <div class="container " style="padding-top:100px; ">
@@ -10,20 +11,20 @@
     <div class="col-lg-8">
        <table class="table table-hover bg-light">
  <form action="<?php $_php_self ?>" method="POST" >
-  <tr class="alert-success"><td><b>Sn</b></td><td><b>Surname</b></td><td><b>Name</b></td><td><b>Matric</b></td><td><b>Sex</b></td><td><i class="fa fa-check-square-o"></i></td></tr>
+  <tr class="alert-success"><td><b>Sn</b></td><td><b>Surname</b></td><td><b>Name</b></td><td><b>Staff ID</b></td><td><b>Sex</b></td><td><i class="fa fa-check-square-o"></i></td></tr>
 <?php
 $count=1;
      while ($result=mysqli_fetch_array($query)) 
       {
-                        echo"<tr class='text-capitalize'>"."<td><b>".$count++."</b> </td>"."<td>" .$result['surname']."</td>"."<td class=''>" .$result['name']."</td>"."<td>" .$result['matric']."</td>"."<td class=''>" .$result['sex']."</td>".
+                        echo"<tr class='text-capitalize'>"."<td><b>".$count++."</b> </td>"."<td>" .$result['surname']."</td>"."<td class=''>" .$result['name']."</td>"."<td>" .$result['staff_id']."</td>"."<td class=''>" .$result['sex']."</td>".
                         "<td>";
 
 if ($result['accredit']==1) {
-  echo"<button type='submit' name='accredit' value='".$result['matric']."' class='btn btn-sm bg-warning' style='color:#fff;'>ACCREDITED</button></td>"."</tr>";
+  echo"<button type='submit' name='accredit' value='".$result['staff_id']."' class='btn btn-sm bg-warning' style='color:#fff;'>ACCREDITED</button></td>"."</tr>";
                
 }
 else{
-                    echo "<button type='submit' name='accredit' value='".$result['matric']."' class='btn btn-sm bg-success' style='color:#fff;padding:4px 16px;'> ACCREDIT </button></td>"."</tr>";
+                    echo "<button type='submit' name='accredit' value='".$result['staff_id']."' class='btn btn-sm bg-success' style='color:#fff;padding:4px 16px;'> ACCREDIT </button></td>"."</tr>";
                 }}
                     ?>
 </form>

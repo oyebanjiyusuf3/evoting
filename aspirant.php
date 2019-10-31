@@ -1,3 +1,4 @@
+
 <?php
 $pagetitle="Asspirant Registration";
 include("includes/adminheader.php");
@@ -45,8 +46,10 @@ else{
 
                       if ($result) 
                              {
-                                 echo "<script type='text/javascript'> 
-                                 (`ASPIRANT WITH STAFF STAFF ID: ${staff_id} ADDED SUCCESSFULLY`)</script>";
+                              
+                              swal("Good job!", "You clicked the button!", "success");
+                                //  echo "<script type='text/javascript'> 
+                                //  (`ASPIRANT WITH STAFF STAFF ID: ${staff_id} ADDED SUCCESSFULLY`)</script>";
                              }
 
                       if (!$result) 

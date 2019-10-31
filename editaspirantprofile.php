@@ -24,7 +24,7 @@ if (isset($_POST['update']))
                 $staff_id=$_POST['update'];
             if ($staff_id) {
               $_SESSION['user_profile'] = $staff_id;
-              header("location:updateprofile.php");
+              header("location:updateaspirantprofile.php");
             }
             }
 ?>
