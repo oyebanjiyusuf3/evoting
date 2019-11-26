@@ -25,6 +25,7 @@ $trim=trim($file);
                       $passkey=strtolower($_POST['passkey']);
                       $surname=strtolower($_POST['surname']);
                       $name=strtolower($_POST['name']);
+                      $email=strtolower($_POST['email']);
                       $age=strtolower($_POST['age']);
                       $sex=strtolower($_POST['sex']);
                       // $department =strtolower(department($matric));
@@ -42,7 +43,7 @@ $trim=trim($file);
 
                else
                   {
-                      $sql="INSERT INTO staffs (staff_id,passkey,surname,name,age,sex,image,fingerprint)VALUES ('$staff_id','$passkey','$surname','$name','$age','$sex','$image','$finger') ";
+                      $sql="INSERT INTO staffs (staff_id,passkey,surname,name,email,age,sex,image,fingerprint)VALUES ('$staff_id','$passkey','$surname','$name','$email','$age','$sex','$image','$finger') ";
                       $result=mysqli_query($db,$sql);
 
                       if ($result) 
@@ -93,6 +94,7 @@ mysqli_close($db);
 <input type="password" name="passkey" class="form-control" required placeholder="Please enter your password"><br>
 <input type="text" name="surname" class="form-control" required placeholder="Please enter your surname"><br>
 <input type="text" name="name" class="form-control" required  placeholder="Please enter your name"><br>
+<input type="email" name="email" class="form-control" required  placeholder="Please enter your email"><br>
 <input type="text" name="age" class="form-control" required placeholder="Please enter your age"><br>
 <!-- <input type="text" name="matric" class="form-control" required  placeholder="Please enter your staff ID"><br>
 <input type="text" name="bvn" class="form-control" required  placeholder="Please enter your BVN"><br> -->
