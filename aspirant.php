@@ -7,7 +7,7 @@ if (isset($_POST['register']))
 {
 
         $staff_id=$_POST['staff_id'];
-        $staff = "([f|p]/[0-9][0-9]/[0-9][0-9][0-9][0-9][0-9][0-9][0-9]$)";
+        $staff = "([A-Da-d][A-Da-d]/[Rr]/[Ss][.][0-9][0-9][0-9][0-9]$)"; 
 
            if (preg_match($staff, $staff_id)===1) 
              {
@@ -80,13 +80,13 @@ mysqli_close($db);
 <input type="text" name="staff_id" class="form-control" required  placeholder="Please enter staff ID"><br>
 <select required  class="form-control" name="position"><br>
           <option>--SELECT POST--</option>
-          <option value='PRESIDENT'>PRESIDENT</option>
-          <option value='VICE PRESIDENT'>VICE PRESIDENT</option>
-          <option value='SECRETARY'>SECRETARY</option>
-          <option value='LIBARIAN'>LIBARIAN</option>
-          <option value='SPORTS DIRECTOR'>SPORTS DIRECTOR</option>
+          <option value='CHAIRMAN'>CHAIRMAN</option>
+          <option value='VICE CHAIRMAN'>VICE CHAIRMAN</option>
+          <option value='GENERAL SECRETARY'>GENERAL SECRETARY</option>
+          <option value='FINANCIAL SECRETARY'>FINANCIAL SECRETARY</option>
+          <option value='TREASURER'>TREASURER</option>
           <option value='WELFARE DIRECTOR'>WELFARE DIRECTOR</option>
-          <option value='SOCIAL DIRECTOR'>SOCIAL DIRECTOR</option>
+          <option value='INTERNAL AUDITOR'>INTERNAL AUDITOR</option>
           <option value='PRO'>PRO</option>
 </select><br>
 

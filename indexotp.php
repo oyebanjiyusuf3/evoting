@@ -17,7 +17,7 @@ include('includes/studenthead.php');
   </div>
 
  <div class="form-group">
-    <label for="inputPassword3" class="col-form-label font-weight-bold">Password</label>
+    <label for="inputPassword3" class="col-form-label font-weight-bold">Phone Number</label>
       <input type="text" class="form-control" required id="input" name="phone" placeholder="Enter your Phone Number">
   </div>
 

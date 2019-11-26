@@ -27,7 +27,7 @@ VALUES ('$name', '$email', '$phone')";
 
 if (mysqli_query($conn, $sql)) {
 
-   $authKey = "4655AzxKojjgO5db9c26b";
+   $authKey = "4655AtJpZ7smY5dbb6b0e";
 
 
 $mobileNumber = $phone;

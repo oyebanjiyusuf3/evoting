@@ -1,4 +1,4 @@
-<?php
+ <?php
 $pagetitle="Staff Registration";
 include("includes/adminheader.php");
 
@@ -10,7 +10,8 @@ $file=fread($myfile,15);
 $trim=trim($file);
         $staff_id=$_POST['staff_id'];
         $age=$_POST['age'];
-        $staff = "([f|p]/[0-9][0-9]/[0-9][0-9][0-9][0-9][0-9][0-9][0-9]$)";
+        // $staff = "([A-Da-d][A-Da-d]/[0-9][0-9]/[0-9][0-9][0-9][0-9][0-9][0-9][0-9]$)";
+        $staff = "([A-Da-d][A-Da-d]/[Rr]/[Ss][.][0-9][0-9][0-9][0-9]$)";
         $ag="([0-9][0-9]$)";
 
    if (preg_match($ag, $age)===1) 
@@ -47,6 +48,7 @@ $trim=trim($file);
                       if ($result) 
                              {
                                  echo "<script type='text/javascript'> alert('SUBMITTED SUCCESSFULLY')</script>";
+                              
                              }
 
                       if (!$result) 
