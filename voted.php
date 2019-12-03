@@ -1,27 +1,39 @@
 <?php
- $pagetitle="accreditation";
-  include("includes/header.php");
-  $department= department($_SESSION['student_user']);
- $sql="SELECT * FROM users WHERE department ='$department' and vote='1'";
-     $query=mysqli_query($db,$sql);
+$pagetitle="View Asspirant";
+  include("includes/adminheader.php");
 ?>
-<div class="container bg-light" style="padding-top:100px; ">
+<div class="container " >
   <div class="row justify-content-center">
     <div class="col-lg-8">
-       <table class="table table-hover">
- <form action="<?php $_php_self ?>" method="POST" >
-  <tr class="alert-success "><td><b>Sn</b></td><td><b>Surname</b></td><td><b>Name</b></td><td><b>Matric</b></td><td><b>Sex</b></td></tr>
+   <table class="table table-hover bg-light" style="margin-top:-90px; ">
+
 <?php
+$staff_id=$_SESSION['student_user'];
+
+echo " <thead>
+    <tr>
+ <th class='alert-success text-center text-uppercase' colspan='6'><b> List of Voted Staffs</b></th>
+    </tr>
+    <tr class='alert-light text-dark'><td><b>Sn</b></td><td><b>Surname</b></td><td><b>Name</b></td><td><b>Staff ID</b></td><td><b>Position</b></td></tr>
+  </thead><tbody class='text-capitalize'>";
+
+$sql="SELECT * FROM aspirants WHERE staff_id ='$staff_id' and position='CHAIRMAN' or position='VICE CHAIRMAN'
+or position='GENERAL SECRETARY'
+or position='FINANCIAL SECRETARY'
+or position='TREASURER'
+or position='WELFARE DIRECTOR'
+or position='INTERNAL AUDITOR'
+or position='PRO'
+or position='CHAIRMAN'
+";
+$query=mysqli_query($db,$sql);
 $count=1;
-     while ($result=mysqli_fetch_array($query)) 
-      {
-                        echo"<tr>"."<td><b>".$count++."</b> </td>"."<td>" .$result['surname']."</td>"."<td class=''>" .$result['name']."</td>"."<td>" .$result['matric']."</td>"."<td class=''>" .$result['sex']."</td>".
-                        "</tr>";}
-                    ?>
-</form>
+while ($result=mysqli_fetch_array($query))
+{ 
+echo"<tr>"."<td>".$count++."</td>"."<td>" .$result['surname']."</td>"."<td class=''>" .$result['name']."</td>"."<td>" .$result['staff_id']."</td>".
+"<td>".$result['position']."</td></tr><br>";
+}
+?>
+</tbody>
 </table>
-</div>
-</div>
-</div>
-<?php
-    ?>
+</div></div></div></div></div>

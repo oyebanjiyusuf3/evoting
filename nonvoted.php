@@ -1,6 +1,6 @@
 <?php
  $pagetitle="accreditation";
-  include("includes/header.php");
+ include("includes/adminheader.php");
   $department= department($_SESSION['student_user']);
  $sql="SELECT * FROM users WHERE department ='$department' and vote=''";
      $query=mysqli_query($db,$sql);

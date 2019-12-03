@@ -41,7 +41,7 @@ function department($matric)
        {
          $department="mass com";
        }
-       return  $department;
+      //  return  $department;
 
      }
      

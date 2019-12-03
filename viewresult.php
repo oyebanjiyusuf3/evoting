@@ -27,7 +27,7 @@ echo "<thead>
     <tr>
  <th class=' bg-dark text-light' colspan='7'>PRESIDENT </th>
     </tr></thead>";
-$sql="SELECT * FROM voted WHERE department ='$department' and position='PRESIDENT'";
+$sql="SELECT * FROM aspirants WHERE department ='$department' and position='PRESIDENT'";
 $query=mysqli_query($db,$sql);
   $count=0;
  
@@ -35,7 +35,7 @@ while ($result=mysqli_fetch_array($query))
 { $count++;
 	
 if($count==1){
-			$president1=$result['matric'];
+			$president1=$result['staff_id'];
 			$fullname1=$result['name']." ".$result['surname'];
 	}
 	if($count==2){
@@ -46,7 +46,7 @@ if($count==1){
 
 $kpresident1=0;
 $kpresident2=0;
-$sql="SELECT * FROM users WHERE department ='$department' and president='$president1'";
+$sql="SELECT * FROM users WHERE department ='$department' and president='$kpresident1'";
 $query=mysqli_query($db,$sql);
 if ($query) {
 	while ($result=mysqli_fetch_array($query))

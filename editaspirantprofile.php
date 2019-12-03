@@ -35,16 +35,17 @@ if (isset($_POST['update']))
       // $department=department($_SESSION['student_user']);
       $staff_id=$_SESSION['student_user'];
       
-      $sql="SELECT * FROM aspirants WHERE staff_id ='$staff_id' and position='PRESIDENT' or position='VICE PRESIDENT'
-      or position='SECRETARY'
-      or position='LIBARIAN'
-      or position='SPORTS DIRECTOR'
+      $sql="SELECT * FROM aspirants WHERE staff_id ='$staff_id' and position='CHAIRMAN' or position='VICE CHAIRMAN'
+      or position='GENERAL SECRETARY'
+      or position='FINANCIAL SECRETARY'
+      or position='TREASURER'
       or position='WELFARE DIRECTOR'
-      or position='SOCIAL DIRECTOR'
+      or position='INTERNAL AUDITOR'
       or position='PRO'
+      or position='CHAIRMAN'
       ";
 $query=mysqli_query($db,$sql);
-echo "<table class='table table-hover bg-light ' style='margin-top:-20px; '><form method='POST'>";
+echo "<table class='table table-hover bg-light ' style='margin-top:-90px; '><form method='POST'>";
 echo " <thead>
     <tr>
  <th class='alert-success text-center text-uppercase' colspan='7'><b> User Profile for all APPLICANTS</b></th>

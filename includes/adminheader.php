@@ -50,9 +50,9 @@ INCLUDE("includes/session.php");
       <li class="nav-item">
         <a class="nav-link" href="editaspirantprofile.php"><i class="fa fa-edit"></i> Edit Aspirant profile</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="accreditation.php"><i class="fa fa-handshake-o"></i> Accreditation</a>
-      </li>
+      </li> -->
       <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <i class="fa fa-check-square-o"></i>   Vote Details

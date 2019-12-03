@@ -15,7 +15,8 @@ if ( isset($_POST['submit']))
 if ($count==1) {
   session_start();
                               $_SESSION['student_user']=$username;  
-                            header('location:indexotp.php');
+                            // header('location:indexotp.php');
+                            header('location:vote.php');
                          }
                         
                     else

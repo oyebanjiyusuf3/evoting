@@ -42,8 +42,8 @@ if (isset($_POST['submit'])) {
  $social=$_POST['social'];
  $pro=$_POST['pro'];
  $vote="1";
-  $matric=$_SESSION['login_user'];
-$accredit_sql = "SELECT * FROM users WHERE matric='$matric'";
+  $staff_id=$_SESSION['student_user'];
+$accredit_sql = "SELECT * FROM users WHERE staff_id='$staff_id'";
                         $retval = mysqli_query( $db,$accredit_sql );
                         $result_retval=mysqli_fetch_array( $retval);
               
@@ -71,16 +71,16 @@ history.back();</script>
 <form method='POST' style="margin-top: 20px;"><table class='table table-hover vote'>
 <thead>
     <tr>
- <th class='alert-success  text-center' colspan='7'> Election for <?php echo department($_SESSION['login_user']); ?></th>
+ <th class='alert-success  text-center' colspan='7'> Election for <?php echo ($_SESSION['student_user']); ?></th>
     </tr></thead>
     <div>
 <?php
- $department=department($_SESSION['login_user']);
- $sql="SELECT * FROM voted WHERE department ='$department' and position='PRESIDENT' ";
+ $staff_id=$_SESSION['student_user'];
+ $sql="SELECT * FROM aspirants WHERE staff_id ='$staff_id' and position='CHAIRMAN' ";
 $query=mysqli_query($db,$sql);
 echo "<thead>
     <tr>
- <th class=' bg-dark text-light' colspan='7'>PRESIDENT </th>
+ <th class=' bg-dark text-light' colspan='7'>CHAIRMAN </th>
     </tr></thead>
  <tbody class=' alert-secondary text-capitalize'>
 <tr>
@@ -88,9 +88,9 @@ echo "<thead>
 while ($result=mysqli_fetch_array($query)) {
       echo"<th><table><tr><th>
                       <img src='".$result['image']."' height='130px'/></th><th>Name:  ".$result['surname']." ".$result['name'].
-                       "<hr>Matric:  ".$result['matric']." </th></tr>
+                       "<hr>Staff ID:  ".$result['staff_id']." </th></tr>
                        <tr><th colspan='2'> <label class='btn btn-secondary'>
-    <input type='radio' name='president' value='".$result['matric']."' required  autocomplete='off'> Vote
+    <input type='radio' name='president' value='".$result['staff_id']."' required  autocomplete='off'> Vote
   </label></th></tr>
                        </table></th>
                       ";
@@ -101,13 +101,13 @@ echo "</div></tr>";
 
 <div>
 <?php
- $department=department($_SESSION['login_user']);
- $sql="SELECT * FROM voted WHERE department ='$department' and  position='VICE PRESIDENT' 
+$staff_id=$_SESSION['student_user'];
+$sql="SELECT * FROM aspirants WHERE staff_id ='$staff_id' and  position='VICE CHAIRMAN' 
 ";
 $query=mysqli_query($db,$sql);
 echo "<thead>
     <tr>
- <th class=' bg-dark text-light' colspan='7'>VICE PRESIDENT</th>
+ <th class=' bg-dark text-light' colspan='7'>VICE CHAIRMAN</th>
     </tr></thead>
  <tbody class=' alert-secondary text-capitalize'>
 <tr>
@@ -115,9 +115,9 @@ echo "<thead>
 while ($result=mysqli_fetch_array($query)) {
       echo"<th><table><tr><th>
                       <img src='".$result['image']."' height='130px'/></th><th>Name:  ".$result['surname']." ".$result['name'].
-                       "<hr>Matric:  ".$result['matric']." </th></tr>
+                       "<hr>STAFF ID:  ".$result['staff_id']." </th></tr>
                        <tr><th colspan='2'> <label class='btn btn-secondary'>
-    <input type='radio' name='vice' value='".$result['matric']."' required autocomplete='off'> Vote
+    <input type='radio' name='vice' value='".$result['staff_id']."' required autocomplete='off'> Vote
   </label></th></tr>
                        </table></th>
                       ";
@@ -127,8 +127,8 @@ echo "</div></tr>";
 
 <div>
 <?php
- $department=department($_SESSION['login_user']);
- $sql="SELECT * FROM voted WHERE department ='$department' and position='SECRETARY' 
+ $staff_id=$_SESSION['student_user'];
+ $sql="SELECT * FROM aspirants WHERE staff_id ='$staff_id' and position='SECRETARY' 
 ";
 $query=mysqli_query($db,$sql);
 
@@ -154,8 +154,8 @@ echo "</div></tr>";
 </div>
 <div>
 <?php
- $department=department($_SESSION['login_user']);
- $sql="SELECT * FROM voted WHERE department ='$department' and position='LIBARIAN' 
+ $staff_id=$_SESSION['student_user'];
+ $sql="SELECT * FROM aspirants WHERE staff_id ='$staff_id' and position='LIBARIAN' 
 ";
 $query=mysqli_query($db,$sql);
 echo "<thead>
@@ -180,8 +180,8 @@ echo "</div></tr>";
 </div>
 <div>
 <?php
- $department=department($_SESSION['login_user']);
- $sql="SELECT * FROM voted WHERE department ='$department' and  position='SPORTS DIRECTOR' 
+ $staff_id=$_SESSION['student_user'];
+ $sql="SELECT * FROM aspirants WHERE staff_id ='$staff_id' and  position='SPORTS DIRECTOR' 
 ";
 $query=mysqli_query($db,$sql);
 echo "<thead>
@@ -206,8 +206,8 @@ echo "</div></tr>";
 </div>
 <div>
 <?php
- $department=department($_SESSION['login_user']);
- $sql="SELECT * FROM voted WHERE department ='$department' and  position='WELFARE DIRECTOR' 
+ $staff_id=$_SESSION['student_user'];
+ $sql="SELECT * FROM aspirants WHERE staff_id ='$staff_id' and  position='WELFARE DIRECTOR' 
 ";
 $query=mysqli_query($db,$sql);
 echo "<thead>
@@ -232,8 +232,8 @@ echo "</div></tr>";
 </div>
 <div>
 <?php
- $department=department($_SESSION['login_user']);
- $sql="SELECT * FROM voted WHERE department ='$department' and  position='SOCIAL DIRECTOR' 
+ $staff_id=$_SESSION['student_user'];
+ $sql="SELECT * FROM aspirants WHERE staff_id ='$staff_id' and  position='SOCIAL DIRECTOR' 
 ";
 $query=mysqli_query($db,$sql);
 echo "<thead>
@@ -257,8 +257,8 @@ echo "</div></tr>";
 </div>
 <div>
 <?php
- $department=department($_SESSION['login_user']);
- $sql="SELECT * FROM voted WHERE department ='$department' and  position='PRO' 
+ $staff_id=$_SESSION['student_user'];
+ $sql="SELECT * FROM aspirants WHERE staff_id ='$staff_id' and  position='PRO' 
 ";
 $query=mysqli_query($db,$sql);
 echo "<thead>
@@ -281,7 +281,7 @@ while ($result=mysqli_fetch_array($query)) {
 echo "</div></tr>";
 ?>
 </div>
-<tr><th colspan="2"><button type="submit"class="form-control" name="submit">Submit</button></th></tr>
+<tr><th colspan="2"><button type="submit"class="form-control btn btn-success" name="submit">Submit</button></th></tr>
 </table>
 </form>
 </div>

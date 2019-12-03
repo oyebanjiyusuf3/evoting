@@ -5,7 +5,7 @@ $pagetitle="View Asspirant";
 <div class="container " >
   <div class="row justify-content-center">
     <div class="col-lg-8">
-   <table class="table table-hover bg-light" style="margin-top:20px; ">
+   <table class="table table-hover bg-light" style="margin-top:-90px; ">
 
 <?php
 $staff_id=$_SESSION['student_user'];
@@ -17,13 +17,14 @@ echo " <thead>
     <tr class='alert-light text-dark'><td><b>Sn</b></td><td><b>Surname</b></td><td><b>Name</b></td><td><b>Staff ID</b></td><td><b>Position</b></td></tr>
   </thead><tbody class='text-capitalize'>";
 
-$sql="SELECT * FROM aspirants WHERE staff_id ='$staff_id' and position='PRESIDENT' or position='VICE PRESIDENT'
-or position='SECRETARY'
-or position='LIBARIAN'
-or position='SPORTS DIRECTOR'
+$sql="SELECT * FROM aspirants WHERE staff_id ='$staff_id' and position='CHAIRMAN' or position='VICE CHAIRMAN'
+or position='GENERAL SECRETARY'
+or position='FINANCIAL SECRETARY'
+or position='TREASURER'
 or position='WELFARE DIRECTOR'
-or position='SOCIAL DIRECTOR'
+or position='INTERNAL AUDITOR'
 or position='PRO'
+or position='CHAIRMAN'
 ";
 $query=mysqli_query($db,$sql);
 $count=1;
