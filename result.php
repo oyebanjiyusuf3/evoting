@@ -10,6 +10,8 @@ $department=department($_SESSION['login_user']);
 $sql="SELECT * FROM voted WHERE department ='$department' and position='PRESIDENT'";
 $query=mysqli_query($db,$sql);
   $count=0;
+
+//modifying the view
  
 while ($result=mysqli_fetch_array($query))
 { $count++;
